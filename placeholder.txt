@@ -1,0 +1,17 @@
+$timeTravel = 0.05;
+  $cost = 8;
+
+  do {
+   $cost++;
+   $st = microtime(true);
+   $hspass = password_hash($pass, PASSWORD_BCRYPT, ['cost' => $cost]);
+   $ed = microtime(true);
+  }while (($ed - $st) < $timeTravel);
+  
+  $posts .= "<li>
+							<div class='jumbotron'>
+								<h2><a href='view_post.php?pid=$id'>$title</a>
+								<h4>by $user_id</h4></h2>
+							</div>
+							<h6>$date</h6><p>$output</p><hr/>
+						</li>";
